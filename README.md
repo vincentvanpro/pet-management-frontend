@@ -20,7 +20,3 @@ From Terminal / Command line:
 https://github.com/vincentvanpro/pet-management-frontend.git
 ```
 * run `npm run start`. navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-### H2 console
-```
-http://localhost:8080/h2-console
-```
