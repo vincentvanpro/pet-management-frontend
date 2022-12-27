@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="py-5 text-center">
+    <h2>Pets</h2>
+  </div>
+
+  <a href="/" class="btn btn-primary">Add pet</a>
+
+  <div class="row">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Type</th>
+        <th scope="col">Fur color</th>
+        <th scope="col">Country</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor = "let pet of pets">
+        <td>{{pet.id}}</td>
+        <td>{{pet.name}}</td>
+        <td>{{pet.code}}</td>
+        <td>
+          <a href="/" class="btn btn-primary">Edit pet</a>
+        </td>
+      </tr>
+      <!-- <tr>
+        <th scope="row">1</th>
+        <td>Mustikas</td>
+        <td>202211151535</td>
+        <td>Cat</td>
+        <td>Black</td>
+        <td>Estonia</td>
+        <td>
+          <a href="/" class="btn btn-primary">Edit pet</a>
+        </td>
+      </tr>-->
+      </tbody>
+    </table>
+  </div>
+</div>
