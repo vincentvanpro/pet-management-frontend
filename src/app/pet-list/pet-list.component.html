@@ -3,10 +3,11 @@
     <h2>Pets</h2>
   </div>
 
-  <a href="/" class="btn btn-primary">Add pet</a>
+  <a routerLink="/create-pet" routerLinkActive="active" class="btn btn-primary mb-3">Add pet</a>
+  <a routerLink="/login" routerLinkActive="active" class="btn btn-secondary mb-3 mx-2" (click)="logout()">LogOut</a>
 
   <div class="row">
-    <table class="table">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table">
       <thead>
       <tr>
         <th scope="col">#</th>
@@ -15,29 +16,23 @@
         <th scope="col">Type</th>
         <th scope="col">Fur color</th>
         <th scope="col">Country</th>
-        <th></th>
+        <th scope="col">Actions</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor = "let pet of pets">
-        <td>{{pet.id}}</td>
-        <td>{{pet.name}}</td>
-        <td>{{pet.code}}</td>
-        <td>
-          <a href="/" class="btn btn-primary">Edit pet</a>
-        </td>
-      </tr>
-      <!-- <tr>
-        <th scope="row">1</th>
-        <td>Mustikas</td>
-        <td>202211151535</td>
-        <td>Cat</td>
-        <td>Black</td>
-        <td>Estonia</td>
-        <td>
-          <a href="/" class="btn btn-primary">Edit pet</a>
-        </td>
-      </tr>-->
+      <ng-container *ngFor = "let pet of pets">
+        <tr *ngIf="pet.owner != null && pet.owner.id == user.id">
+          <td>{{pet.id}}</td>
+          <td>{{pet.name}}</td>
+          <td>{{pet.code}}</td>
+          <td>{{pet.type}}</td>
+          <td>{{pet.furColor}}</td>
+          <td>{{pet.country}}</td>
+          <td>
+            <button (click)="editPet(pet.id)" class="btn btn-primary">Edit pet</button>
+          </td>
+        </tr>
+      </ng-container>
       </tbody>
     </table>
   </div>

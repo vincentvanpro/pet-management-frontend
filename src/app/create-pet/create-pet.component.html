@@ -1,0 +1,101 @@
+<div class="container pb-3">
+  <div class="py-5 text-center">
+    <h2>Add a New Pet</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 order-md-1">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation">
+
+        <div class="mb-3">
+          <label for="name">Name</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" formControlName="name"
+                   [(ngModel)]="pet.name"
+                   [ngClass]="{ 'is-invalid': submitted && name.errors }"
+            >
+            <div *ngIf="submitted && name.errors" class="invalid-feedback">
+              <div *ngIf="name.errors['required']">Name is required</div>
+              <div *ngIf="name.errors['maxlength']">Name length must be between 1 and 50 characters</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="code">Code</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="code" name="code" placeholder="Code" formControlName="code"
+                   pattern="^\d+$"
+                   [(ngModel)]="pet.code"
+                   [ngClass]="{ 'is-invalid': submitted && code.errors }"
+            >
+            <div *ngIf="submitted && code.errors" class="invalid-feedback">
+              <div *ngIf="code.errors['required']">Code is required</div>
+              <div *ngIf="code.errors['minlength'] || code.errors['maxlength']">Code length must be 12 symbols</div>
+              <div *ngIf="code.errors['pattern']">Code must contain digits only</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="types">Type</label>
+          <select class="form-select d-block w-100" id="types" name="types"
+                  [(ngModel)]="pet.type"
+                  formControlName="type"
+                  [ngClass]="{ 'is-invalid': submitted && type.errors }"
+          >
+            <option [value]="undefined" selected disabled>Choose...</option>
+            <option *ngFor="let type of typeObjects" [ngValue]="type.name">
+              {{type.name}}
+            </option>
+          </select>
+          <div *ngIf="submitted && type.errors" class="invalid-feedback">
+            <div *ngIf="type.errors['required']">Please select a pet type</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="colors">Fur color</label>
+          <select class="form-select d-block w-100" name="colors" id="colors"
+                  [(ngModel)]="pet.furColor"
+                  formControlName="furColor"
+                  [ngClass]="{ 'is-invalid': submitted && furColor.errors }"
+          >
+            <option [value]="undefined" selected disabled>Choose...</option>
+            <option *ngFor="let color of furColorObjects" [ngValue]="color.name">
+              {{color.name}}
+            </option>
+          </select>
+          <div *ngIf="submitted && furColor.errors" class="invalid-feedback">
+            <div *ngIf="furColor.errors['required']">Please select a pet fur color</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="countries">Country of origin</label>
+          <select class="form-select d-block w-100" name="countries" id="countries"
+                  [(ngModel)]="pet.country"
+                  formControlName="country"
+                  [ngClass]="{ 'is-invalid': submitted && country.errors }"
+          >
+            <option [value]="undefined" selected disabled>Choose...</option>
+            <option *ngFor="let country of countryObjects" [ngValue]="country.name">
+              {{country.name}}
+            </option>
+          </select>
+          <div *ngIf="submitted && country.errors" class="invalid-feedback">
+            <div *ngIf="country.errors['required']">Please select pet's country of origin</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-lg btn-block"
+                type="submit">
+          Add Pet
+        </button>
+
+        <a routerLink="/pets" routerLinkActive="active" class="btn btn-secondary btn-lg btn-block m-lg-2">Back</a>
+      </form>
+    </div>
+  </div>
+
+</div>

@@ -1,27 +1,26 @@
-# PetManagementFrontend
+# Front Angular application for pet management system.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+# Stack
+* Angular 15
+* Bootstrap 5
+* Datatables
 
-## Development server
+# Run the application
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+From IDE:
+```
+Import the project into the IDE. 
+Run it with Angular CLI Server.
+```
 
-## Code scaffolding
+From Terminal / Command line:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* clone the repo
+```
+https://github.com/vincentvanpro/pet-management-frontend.git
+```
+* run `ng serve`. navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### H2 console
+```
+http://localhost:8080/h2-console
+```
